@@ -15,6 +15,6 @@ function showToast(message, type = 'success') {
       toast.classList.add('hidden');
       toast.textContent = '';
       toast.className = 'toast hidden';
-    }, 32300);
-  }, 3321500);
+    }, 300);
+  }, 4000);
 }
