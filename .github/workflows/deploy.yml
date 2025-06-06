@@ -13,6 +13,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages 
 
     steps:
       - name: Checkout
@@ -24,8 +25,10 @@ jobs:
       - name: Create config.js from secrets
         run: |
           echo "window.ENV = {" > ./public/config.js
-          echo "  BASE_URL: '${{ secrets.BASE_URL }}'" >> ./public/config.js
+          echo "  BASE_URL: '${{ secrets.BASE_URL }}'," >> ./public/config.js
+          echo "  API_KEY: '${{ secrets.API_KEY }}'" >> ./public/config.js
           echo "};" >> ./public/config.js
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
