@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма с отправкой на API</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9fb;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      border-radius: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    input[type="text"] {
+      padding: 10px 16px;
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #a855f7;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 16px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      background: linear-gradient(90deg, #583BE8 0%, #FF65B3 100%);
+    }
+
+    button:hover {
+      background-color: #9333ea;
+    }
+  </style>
+</head>
+<body>
+  <form id="dataForm">
+    <label>Полe</label>
+    <input type="text" name="field1" placeholder="Поле 1" required>
+    <label>Полe</label>
+    <input type="text" name="field2" placeholder="Поле 2" required>
+    <label>Полe</label>
+    <input type="text" name="field3" placeholder="Поле 3" required>
+    <button type="submit">Отправить</button>
+  </form>
+
+  <script>
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const data = {
+        field1: formData.get('field1'),
+        field2: formData.get('field2'),
+        field3: formData.get('field3')
+      };
+
+      fetch('https://example.com/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        alert('Данные успешно отправлены!');
+        console.log(result);
+      })
+      .catch(error => {
+        alert('Ошибка при отправке данных.');
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>
