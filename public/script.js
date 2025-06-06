@@ -49,16 +49,20 @@ form.addEventListener('submit', function(event) {
     },
     body: JSON.stringify(payload)
   })
-  .then(response => {
-    if (!response.ok) throw new Error('Ошибка сервера');
-    return response.json();
-  })
-  .then(result => {
-    showToast('Успешно отправлено!', 'success');
-    console.log(result);
+  .then(async response => {
+    const data = await response.json();
+    if (response.ok) {
+     showToast('Success submitted!', 'success');
+     console.log(data);
+    } else {
+      const errorMessage = data.error || 'Unknown error';
+      showToast('Error: ' + errorMessage, 'error');
+      console.error('Error:', errorMessage);
+      throw new Error(errorMessage);
+    }
   })
   .catch(error => {
-    showToast('Ошибка: ' + error.message, 'error');
+    showToast('Error: ' + error.message, 'error');
     console.error(error);
   })
   .finally(() => {

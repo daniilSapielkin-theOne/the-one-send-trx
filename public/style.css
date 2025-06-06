@@ -120,6 +120,11 @@ button:hover {
   color: #7f1d1d;
 }
 
+.toast.info {
+  background-color: #60a5fa;
+  color: #1e3a8a;
+}
+
 .hidden {
   display: none;
 }
