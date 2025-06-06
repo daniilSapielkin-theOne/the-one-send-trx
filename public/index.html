@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <title>The One</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <img class="logo" alt="logo" src="./img/logo.png" />
+  <form id="dataForm">
+    <label>Action</label>
+    <select name="action" id="actionSelect"  class="actionSelect" required>
+      <option value="approve">Approve</option>
+      <option value="cancel">Cancel</option>
+    </select>
+
+    <label>ID</label>
+    <input type="text" name="id" placeholder="ID" required />
+
+    <div id="approveFields" class="approveFields">
+      <label>Transaction Hash</label>
+      <input type="text" name="tx_hash" placeholder="TxHash" />
+
+      <label>External ID</label>
+      <input type="text" name="external_id" placeholder="External ID" />
+    </div>
+
+    <button type="submit">Отправить</button>
+  </form>
+  <div id="toast" class="toast hidden"></div>
+
+
+  <script src="toast.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
