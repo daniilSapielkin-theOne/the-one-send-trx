@@ -51,7 +51,7 @@ form.addEventListener('submit', function(event) {
   })
   .then(async response => {
     const data = await response.json();
-    if (response.ok) {
+    if (response.status === 200) {
      showToast('Success submitted!', 'success');
      console.log(data);
     } else {
