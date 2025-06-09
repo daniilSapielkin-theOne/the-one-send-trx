@@ -50,13 +50,11 @@ form.addEventListener('submit', function(event) {
     body: JSON.stringify(payload)
   })
   .then(async response => {
-    const data = await response.json();
     if (response.status === 200) {
      showToast('Success submitted!', 'success');
-     console.log(data);
     } else {
       const errorMessage = data.error || 'Unknown error';
-      showToast('Error: ' + errorMessage, 'error');
+      showToast('Error:' + errorMessage, 'error');
       console.error('Error:', errorMessage);
       throw new Error(errorMessage);
     }
