@@ -6,10 +6,14 @@ const BASE_URL = window.ENV.BASE_URL;
 const API_KEY = window.ENV.API_KEY;
 
 function toggleApproveFields() {
+  const idLabel = document.getElementById('idLabel');
+  
   if (actionSelect.value === 'cancel') {
     approveFields.classList.add('hidden');
+    idLabel.textContent = 'Request ID';
   } else {
     approveFields.classList.remove('hidden');
+    idLabel.textContent = 'ID';
   }
 }
 

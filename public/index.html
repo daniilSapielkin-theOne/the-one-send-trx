@@ -16,14 +16,14 @@
       <option value="cancel">Cancel</option>
     </select>
 
-    <label>Request ID</label>
+     <label><label id="idLabel">ID</label><span class="required-text">(required)</span></label>
     <input type="text" name="id" placeholder="ID" required />
 
     <div id="approveFields" class="approveFields">
-      <label>Transaction Hash (from CEX)</label>
+      <label>Transaction Hash (from CEX) <span class="optional-text">(optional)</span></label>
       <input type="text" name="tx_hash" placeholder="TxHash" />
 
-      <label>External ID (from CEX)</label>
+      <label>External ID (from CEX) <span class="optional-text">(optional)</span></label>
       <input type="text" name="external_id" placeholder="External ID" />
     </div>
 

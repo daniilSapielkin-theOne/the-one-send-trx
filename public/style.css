@@ -86,6 +86,26 @@ button:hover {
   display: none !important;
 }
 
+.optional-text {
+  color: #6c757d;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.required-text {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-left: 4px;
+  font-style: italic;
+}
+
+#idLabel {
+  margin-left: 8px;
+}
+
+.approveFields > label {
+  margin-left: 8px;
+}
 
 /* Toast */
 .toast {
